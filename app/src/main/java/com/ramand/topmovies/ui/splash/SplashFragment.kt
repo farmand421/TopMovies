@@ -14,6 +14,7 @@ import com.ramand.topmovies.utils.StoreUserData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -33,7 +34,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Set Delay
-        lifecycle.coroutineScope.launchWhenCreated {
+        lifecycle.coroutineScope.launch {
             delay(2000)
         //Check User Token
             storeDataUser.getUserToken().collect(){
@@ -45,7 +46,13 @@ class SplashFragment : Fragment() {
 
             }
         }
+        findNavController().popBackStack(R.id.splashFragment,true)
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

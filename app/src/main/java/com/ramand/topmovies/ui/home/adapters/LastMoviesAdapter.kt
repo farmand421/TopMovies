@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.request.CachePolicy
 import com.ramand.topmovies.databinding.ItemHomeMoviesLastBinding
 import com.ramand.topmovies.models.home.ResponseMoviesList.Data
 import javax.inject.Inject
@@ -23,6 +24,7 @@ class LastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<LastMoviesA
                 moviePosterImg.load(item.poster){
                     crossfade(true)
                     crossfade(800)
+                    diskCachePolicy(CachePolicy.ENABLED)
                 }
                 movieNameTxt.text = item.title
                 movieRateTxt.text = item.imdbRating

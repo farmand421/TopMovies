@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.request.CachePolicy
 import com.ramand.topmovies.databinding.ItemHomeMoviesTopBinding
 import com.ramand.topmovies.models.home.ResponseMoviesList.Data
 import javax.inject.Inject
@@ -22,6 +23,7 @@ class TopMoviesAdapter @Inject constructor() : RecyclerView.Adapter<TopMoviesAda
                 moviePosterImg.load(item.poster){
                     crossfade(true)
                     crossfade(800)
+                    diskCachePolicy(CachePolicy.ENABLED)
                 }
                 movieNameTxt.text = item.title
                 movieInfoTxt.text = "${item.imdbRating} | ${item.country} | ${item.year}"

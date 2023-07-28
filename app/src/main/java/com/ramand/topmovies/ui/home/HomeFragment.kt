@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,7 +38,7 @@ class HomeFragment : Fragment() {
     lateinit var lastMoviesAdapter: LastMoviesAdapter
 
     //Other
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by activityViewModels()
     private val pagerHelper: PagerSnapHelper by lazy { PagerSnapHelper() }
 
     override fun onCreate(savedInstanceState: Bundle?) {

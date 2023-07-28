@@ -39,16 +39,16 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomNav.visibility = View.VISIBLE
             }
         }
-
+        binding.bottomNav.setOnItemReselectedListener {  }
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
 
     override fun onNavigateUp(): Boolean {
         return navHost.navController.navigateUp() || super.onNavigateUp()
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
