@@ -1,2 +1,2 @@
 # TopMovies
-This is my first practice project that uses server communication
+This is my first training project that uses login, server connection, local database and instant search.
